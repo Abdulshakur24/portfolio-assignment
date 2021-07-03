@@ -1,0 +1,8 @@
+.App {
+  @import "./scss/variables";
+  @import "./scss/mixins";
+  @import "./scss/global";
+  @import "./scss/components/header";
+  @import "./scss/components/body";
+  @import "./scss/components/footer";
+}

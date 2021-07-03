@@ -1,0 +1,85 @@
+.footer {
+  display: flex;
+  justify-content: center;
+  height: 280px;
+  background: $black;
+  color: white;
+
+  .container {
+    max-width: 860px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    @include breakpoint-up(large) {
+      flex-direction: row;
+    }
+
+    .top {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      h5 {
+        margin-bottom: 1.5rem;
+        @include breakpoint-up(medium) {
+          margin-bottom: unset;
+        }
+      }
+
+      .text-field {
+        display: flex;
+        flex-direction: column;
+        @include breakpoint-up(medium) {
+          flex-direction: row;
+        }
+        input,
+        button {
+          border: none;
+          width: 210px;
+          height: 46px;
+          padding: 12px 15px;
+          outline: none;
+          border-radius: 2px;
+          transition: all 300ms ease-in-out;
+          margin-bottom: 1.5rem;
+          @include breakpoint-up(medium) {
+            margin: 1rem 1rem;
+          }
+        }
+
+        input {
+          background: $dark;
+          color: $white;
+        }
+
+        button {
+          cursor: pointer;
+          background: $brown;
+          color: $white;
+
+          &:hover {
+            background: $lightsalmon;
+          }
+        }
+      }
+
+      @include breakpoint-up(medium) {
+        flex-direction: row;
+      }
+    }
+    .bottom {
+      display: grid;
+      grid-template: 1fr / 1fr 1fr 1fr;
+      gap: 1rem;
+
+      .MuiSvgIcon-root {
+        transition: all 300ms ease-in-out;
+        cursor: pointer;
+        &:hover {
+          color: $brown;
+        }
+      }
+    }
+  }
+}

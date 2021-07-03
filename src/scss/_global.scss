@@ -1,0 +1,30 @@
+//Visibility
+.hide-for-mobile {
+  @include breakpoint-down(medium) {
+    display: none !important;
+  }
+}
+
+.hide-for-tablet {
+  @include breakpoint-down(large) {
+    display: none !important;
+  }
+}
+
+.hide-for-desktop {
+  @include breakpoint-up(large) {
+    display: none !important;
+  }
+}
+
+.hide-for-desktop-down {
+  @include breakpoint-down(xlarge) {
+    display: none !important;
+  }
+}
+
+.hide-for-large-desktop {
+  @include breakpoint-up(xlarge) {
+    display: none !important;
+  }
+}
