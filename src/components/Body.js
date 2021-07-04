@@ -1,31 +1,46 @@
-import React from "react";
+import React, { useState } from "react";
 
 const Body = () => {
+  const [users, setUsers] = useState({
+    name: "",
+    email: "",
+    subject: "",
+    message: "",
+  });
+
+  const { name, email, subject, message } = users;
+  console.log(name, email, subject, message);
+  const handleChange = (name) => (e) => {
+    setUsers({ ...users, [name]: e.target.value });
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+  };
+
   return (
     <div className="body">
-      <div id="home" className="banner">
-        <div className="container">
-          <p>
-            <strong>Susan Wong</strong> was born in Hong Kong and emigrated to
-            Sydney, Australia with her family at the age of seven. Musically
-            inclined from a young age, she learned to play the piano from five
-            and later also learned the violin. At school in Sydney she sang alto
-            in the choir and appeared in the school dramas (Gilbert & Sullivan &
-            the like) and entered a number of piano competitions. She received
-            an associate degree, ATCL, in piano at Trinity College.
-          </p>
-          <h4>Born</h4>
-          <p>1979(age 47)</p>
-          <h4>Born In</h4>
-          <p>Hong Kong, China</p>
-        </div>
-      </div>
+      <div id="home" className="banner" />
       <div id="about" className="about">
         <div className="container">
           <div className="top">
             <h1>Biography</h1>
           </div>
           <div className="left">
+            <p>
+              <strong>Susan Wong</strong> was born in Hong Kong and emigrated to
+              Sydney, Australia with her family at the age of seven. Musically
+              inclined from a young age, she learned to play the piano from five
+              and later also learned the violin. At school in Sydney she sang
+              alto in the choir and appeared in the school dramas (Gilbert &
+              Sullivan & the like) and entered a number of piano competitions.
+              She received an associate degree, ATCL, in piano at Trinity
+              College.
+            </p>
+            <h4>Born</h4>
+            <p>1979(age 47)</p>
+            <h4>Born In</h4>
+            <p>Hong Kong, China</p>
             <p>
               Her first break in the music world was at the age of sixteen when
               her parents (with mixed feelings) entered her for a singing
@@ -80,6 +95,27 @@ const Body = () => {
             <div className="i" />
             <div className="j" />
           </div>
+        </div>
+      </div>
+      <div className="get-touch">
+        <div className="container">
+          <p>SECTION SUBTITLE</p>
+          <h1>GET IN TOUCH</h1>
+
+          <form onSubmit={handleSubmit}>
+            <input onChange={handleChange("name")} placeholder="Name" />
+            <input
+              onChange={handleChange("email")}
+              placeholder="Email Address"
+            />
+            <input onChange={handleChange("subject")} placeholder="Subject" />
+            <textarea
+              onChange={handleChange("message")}
+              placeholder="Message"
+            ></textarea>
+
+            <button>SUBMIT</button>
+          </form>
         </div>
       </div>
     </div>
