@@ -1,17 +1,18 @@
 import React, { useState } from "react";
 
 const Body = () => {
-  const [users, setUsers] = useState({
+  const [user, setUser] = useState({
     name: "",
     email: "",
     subject: "",
     message: "",
   });
 
-  const { name, email, subject, message } = users;
+  const { name, email, subject, message } = user;
   console.log(name, email, subject, message);
+
   const handleChange = (name) => (e) => {
-    setUsers({ ...users, [name]: e.target.value });
+    setUser({ ...user, [name]: e.target.value });
   };
 
   const handleSubmit = (event) => {

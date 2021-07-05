@@ -1,22 +1,18 @@
 import React, { useEffect, useState } from "react";
 
 const Header = () => {
-  const [scrollTop, setScrollTop] = useState(0);
-  const [scrolling, setScrolling] = useState(false);
+  const [show, setShow] = useState(false);
+  const transitionNavBar = () =>
+    window.scrollY > 500 ? setShow(true) : setShow(false);
 
   useEffect(() => {
-    const onScroll = (e) => {
-      setScrollTop(e.target.documentElement.scrollTop);
-      setScrolling(e.target.documentElement.scrollTop < scrollTop);
-    };
-    window.addEventListener("scroll", onScroll);
-
-    return () => window.removeEventListener("scroll", onScroll);
-  }, [scrollTop]);
+    window.addEventListener("scroll", transitionNavBar);
+    return () => window.removeEventListener("scroll", transitionNavBar);
+  });
 
   return (
     <div className="header">
-      <div className={`container ${scrolling ? "scrolling" : "static"}`}>
+      <div className={`container ${!show ? "scrolling" : "static"}`}>
         <h2>Susan Wong</h2>
         <div className="navigations hide-for-mobile">
           <a href="#home">HOME</a>
